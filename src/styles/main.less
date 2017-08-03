@@ -1,0 +1,186 @@
+@base: #a50034;
+
+.nav-zw {
+  color: @base;
+}
+
+//横向导航 上边
+.nav-tabs-line.nav-tabs-bottom .nav-item.open .nav-link,
+.nav-tabs-line.nav-tabs-bottom .nav-item.open .nav-link:focus,
+.nav-tabs-line.nav-tabs-bottom .nav-item.open .nav-link:hover,
+.nav-tabs-line.nav-tabs-bottom .nav-link.active,
+.nav-tabs-line.nav-tabs-bottom .nav-link.active:focus,
+.nav-tabs-line.nav-tabs-bottom .nav-link.active:hover
+{
+  border-top: 2px solid @base
+}
+.nav-tabs-line .nav-item.open .nav-link,
+.nav-tabs-line .nav-item.open .nav-link:focus,
+.nav-tabs-line .nav-item.open .nav-link:hover,
+.nav-tabs-line .nav-link.active, .nav-tabs-line
+.nav-link.active:focus, .nav-tabs-line
+.nav-link.active:hover
+{
+  border-bottom: 2px solid @base
+}
+.nav-tabs-vertical .nav-tabs-line .nav-link.active, .nav-tabs-vertical .nav-tabs-line .nav-link.active:focus, .nav-tabs-vertical .nav-tabs-line .nav-link.active:hover
+{
+  border-right: 2px solid @base
+}
+//导航文字
+.nav-tabs-line .nav-item.open .nav-link, .nav-tabs-line .nav-item.open .nav-link:focus, .nav-tabs-line .nav-item.open .nav-link:hover, .nav-tabs-line .nav-link.active, .nav-tabs-line .nav-link.active:focus, .nav-tabs-line .nav-link.active:hover
+{
+  color: @base;
+}
+//圆形按钮
+.btn-success {
+  background-color: @base;
+  border-color: @base;
+  opacity: 1;
+
+}
+.btn-success:hover,
+.btn-success:active,
+.btn-success:visited,
+.btn-success:link,
+.btn-success:focus {
+  background-color: @base;
+  border-width: 1px;
+  border-color: @base;
+  opacity: .75;
+  color: #fff;
+}
+.tag-info {
+  background-color: transparent;
+  background: transparent;
+  border: 1px solid @base;
+  color: @base;
+}
+
+.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover {
+  background-color: @base;
+}
+.page-total {
+  position: relative;
+  float: left;
+  margin-left: -1px;
+  padding: .643rem 1.072rem;
+  text-decoration: none;
+  color: #757575;
+  border: 0px solid #e0e0e0;
+  background-color: transparent;
+}
+
+.page-footer{
+  position: fixed;
+  bottom: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 10px 20px;
+  right: 0px;
+  z-index: 100;
+  pointer-events: none;
+}
+.page-footer .btn, .page-footer a {
+  pointer-events: all;
+}
+.page-footer .btn{
+  margin: 5px;
+  float: right;
+}
+
+ .btn-group-margin .btn {
+   margin-right: 10px;
+ }
+
+
+ .spin {
+   -webkit-animation: spin 2s infinite linear;
+   animation: spin 2s infinite linear;
+ }
+
+
+ .card-id {
+   position: absolute;
+   left: 10px;
+   top: 10px;
+   color: @base;
+ }
+.color-white {
+  color: white;
+}
+
+.card-action {
+   position: absolute;
+   right: 0px;
+   top: 0px;
+ }
+
+ .card-widget .widget-name {
+   font-size: 14px;
+ }
+
+ .bg-green-600 .counter .counter-number-group,
+ .bg-green-600 .counter>.counter-number,
+ .bg-green-600 .counter-label,
+ .bg-blue-600 .counter .counter-number-group,
+ .bg-blue-600 .counter>.counter-number,
+ .bg-blue-600 .counter-label
+ {
+   color: white;
+ }
+.card-border-green-hover{
+  border: 1px solid transparent;
+}
+ .card-border-green-hover:hover{
+   border: 1px solid #43a047;
+ }
+.card-border-blue-hover{
+  border: 1px solid transparent;
+}
+.card-border-blue-hover:hover{
+  border: 1px solid #1e88e5;
+}
+
+.widget-log {
+  background-color: black;
+  padding: 30px;
+  height: 300px;
+  overflow: auto;
+}
+
+.widget-log .time {
+  color: #43a047;
+  margin-right: 10px;
+}
+.widget-log .log {
+  padding: 0;
+  margin: 5px;
+  color: white;
+}
+
+.nodata-panel {
+  text-align: center;
+
+}
+.loadding-model {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(211, 211, 211, 0.4);
+}
+
+.loadding-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.list-group-item {
+  word-wrap:break-word;
+}

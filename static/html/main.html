@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="apple-touch-icon"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon"
+        href="<%= htmlWebpackPlugin.options.statics.icon[htmlWebpackPlugin.options.statics.ico] %>">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/css/bootstrap-extend.min.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/css/site.min.css">
+  <!-- Plugins -->
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/animsition/animsition.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/asscrollable/asScrollable.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/switchery/switchery.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/intro-js/introjs.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/slidepanel/slidePanel.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/flag-icon-css/flag-icon.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/waves/waves.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist/chartist.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/examples/css/dashboard/v1.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jquery-wizard/jquery-wizard.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/html5sortable/sortable.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/webui-popover/webui-popover.css">
+  <link rel="stylesheet"
+        href="https://cdn.bootcss.com/fullcalendar/3.4.0/fullcalendar.css">
+
+  <link rel="stylesheet" href="http://7xlcsz.com1.z0.glb.clouddn.com/dcalendar.picker.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/nprogress/nprogress.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist/chartist.css">
+  <!--<link href="https://cdn.bootcss.com/cropper/3.0.0-rc.3/cropper.min.css" rel="stylesheet">-->
+
+  <!--<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/highlight/styles/default.css">-->
+  <!--<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/highlight/styles/github-gist.css">-->
+  <!--<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/highlight/highlight.css">-->
+  <!--<link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/examples/css/advanced/highlight.css">-->
+  <!-- Fonts -->
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/material-design/material-design.min.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/brand-icons/brand-icons.min.css">
+  <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/font-awesome/font-awesome.css">
+  <link rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/slick-carousel/slick.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/7-stroke/7-stroke.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/material-design/material-design.min.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/fonts/brand-icons/brand-icons.min.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/alertify/alertify.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/examples/css/pages/maintenance.css">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/bootstrap-select/bootstrap-select.css">
+  <link rel="stylesheet" href="static/css/iconfont.css">
+  <link rel="stylesheet" href="static/font/font1/iconfont.css">
+  <link rel="stylesheet" href="static/font/font2/iconfont.css">
+  <link rel="stylesheet" href="static/font/font3/iconfont.css">
+  <link rel="stylesheet" href="static/font/font4/iconfont.css">
+
+  <!--<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'> -->
+  <!--[if lt IE 9]>
+  <script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/html5shiv/html5shiv.min.js"></script>
+  <![endif]-->
+  <!--[if lt IE 10]>
+  <script
+    src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/media-match/media.match.min.js"></script>
+  <script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/respond/respond.min.js"></script>
+  <![endif]-->
+  <!-- Scripts -->
+  <script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/breakpoints/breakpoints.js"></script>
+  <script>
+    Breakpoints();
+  </script>
+
+  <style>
+    body {
+      padding-top: 0;
+    }
+
+    /*.navbar-inverse .navbar-toolbar .nav-link{*/
+    /*color: black;*/
+    /*}*/
+    /*.navbar-inverse .hamburger .hamburger-bar, .navbar-inverse .hamburger:after, .navbar-inverse .hamburger:before{*/
+    /*background: black;*/
+    /*}*/
+  </style>
+</head>
+<body class="    site-menubar-fixed site-menubar-push" >
+<div id="app" class=""></div>
+<!-- Core  -->
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jquery/jquery.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/tether/tether.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/bootstrap/bootstrap.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/animsition/animsition.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/mousewheel/jquery.mousewheel.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/asscrollable/jquery-asScrollable.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/waves/waves.js"></script>
+<!-- Plugins -->
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/switchery/switchery.min.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/intro-js/intro.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/screenfull/screenfull.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/slidepanel/jquery-slidePanel.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/slick-carousel/slick.js"></script>
+
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist/chartist.min.js"></script>-->
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js"></script>-->
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jvectormap/jquery-jvectormap.min.js"></script>-->
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>-->
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/matchheight/jquery.matchHeight-min.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/peity/jquery.peity.min.js"></script>
+<script
+  src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jquery-wizard/jquery-wizard.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/skycons/skycons.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.bootcss.com/fullcalendar/3.4.0/fullcalendar.js"></script>
+<script src="https://cdn.bootcss.com/fullcalendar/3.4.0/locale-all.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+<script src="http://7xpmqq.com1.z0.glb.clouddn.com/jquery.fancybox.pack.js"></script>
+<script src="http://7xpmqq.com1.z0.glb.clouddn.com/jquery.roundabout.min.js"></script>
+
+<script src="http://7xpmqq.com1.z0.glb.clouddn.com/dcalendar.picker.js"></script>
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/highlight/highlight.pack.js"></script>-->
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/highlight.js"></script>-->
+
+<!-- Scripts -->
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/State.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Component.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Base.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Config.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/Section/Menubar.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/Section/Sidebar.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/Section/PageAside.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/Plugin/menu.js"></script>
+<!-- Config -->
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/config/colors.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/config/tour.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/html5sortable/html.sortable.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/alertify/alertify.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/jquery-appear/jquery.appear.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/webui-popover/jquery.webui-popover.min.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/bootstrap-select/bootstrap-select.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/nprogress/nprogress.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/vendor/chartist/chartist.min.js"></script>
+<script>
+  Config.set('assets', '/remark/center/assets');
+</script>
+<!-- Page -->
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/js/Site.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/asscrollable.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/slidepanel.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/switchery.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/matchheight.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/jvectormap.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/peity.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/center/assets/examples/js/dashboard/v2.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/jquery-wizard.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/html5sortable.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/jquery-appear.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/panel.js"></script>
+<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/bootstrap-select.js"></script>
+
+<!--<script src="<%= htmlWebpackPlugin.options.statics.base %>/remark/global/js/Plugin/webui-popover.js"></script>-->
+
+<script src="https://cdn.bootcss.com/socket.io/1.4.6/socket.io.min.js"></script>
+<script src="./static/js/jquery.gesture.password.min.js"></script>
+
+<script src="http://captcha.luosimao.com/static/dist/api.js"></script>
+
+</body>
+</html>

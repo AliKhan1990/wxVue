@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href="https://cdn.bootcss.com/cropper/3.0.0-rc.3/cropper.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdn.bootcss.com/cropper/3.0.0-rc.3/cropper.min.js"></script>
+  <style>
+    img {
+      max-width: 100%; /* This rule is very important, please do not ignore this! */
+    }
+    #preview {
+      width: 200px;
+      height:200px;
+      overflow: hidden;
+    }
+    .img-container {
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid " style="padding-top: 30px;">
+    <div class="row">
+      <div class="col-xs-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            裁剪区域
+
+          </div>
+          <div class="panel-body">
+            <div class="img-container">
+              <img id="image" src="http://img2.imgtn.bdimg.com/it/u=4241635550,373380940&fm=26&gp=0.jpg">
+           </div>
+            <label class="btn btn-default  btn-upload pull-right " style="margin-top:10px;" for="inputImage" title="Upload image file">
+              <input onchange="inputChange()" type="file" class="sr-only" id="inputImage" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+              <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="" data-original-title="Import image with Blob URLs">
+                <span class="fa fa-upload">上传</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+          <div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">预览</div>
+          <div class="panel-body center">
+              <div id="preview" style="margin: 10px auto;"></div>
+            <button type="button" class="btn btn-default pull-right" onclick="save()">保存</button>
+          </div>
+        </div>
+        <div class="panel panel-default qiniu" style="display: none;">
+          <div class="panel-heading">上传地址</div>
+          <div class="panel-body">
+            <a  id="imgUrl" style="word-wrap: break-word;"></a>
+            <hr>
+            <div class="btn-group  pull-right" role="group" aria-label="...">
+              <button type="button" class="btn btn-danger"
+                      onclick="deleteFun()"
+              >删除</button>
+              <button type="button" class="btn btn-success"
+                      onclick="complete()"
+              >使用</button>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!--<button class="btn" onclick="save()">-->
+          <!--保存-->
+        <!--</button>-->
+       <!---->
+        <!--<button class="btn qiniu" id="delBtn" style="display: none;"   onclick="deleteFun()">-->
+          <!--删除-->
+        <!--</button>-->
+      </div>
+</div>
+
+
+
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    var uploadedImageType = 'image/jpeg';
+    var uploadedImageURL;
+    var options = {
+      aspectRatio:  1,
+      preview: '#preview',
+      cropBoxResizable: false,
+      crop: function(e) {
+        // Output the result data for cropping image.
+        console.log(e.x);
+        console.log(e.y);
+        console.log(e.width);
+        console.log(e.height);
+        console.log(e.rotate);
+        console.log(e.scaleX);
+        console.log(e.scaleY);
+      }
+    };
+
+    $(document).ready(function(){
+      $('#image').cropper(options);
+      inputChange();
+    })
+
+    var img = '';
+    function save(){
+      $('#image').cropper('getCroppedCanvas').toBlob(function (blob) {
+        var formData = new FormData();
+        console.log(blob);
+        formData.append('croppedImage', blob);
+        formData.append('key', 'TESTCROPPER');
+
+        if(img) {
+            deleteFun();
+        }
+
+        $.ajax('http://localhost:3001/p/util/uploadImg/Logo', {
+          method: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (data) {
+              console.log(data);
+            console.log('Upload success');
+            data = JSON.parse(data);
+            img = data.data.fileName;
+            $('#imgUrl').attr('href',data.data.fullPath).text(data.data.fullPath)
+            $('.qiniu').show();
+          },
+          error: function (e) {
+              console.error(e)
+            console.log('Upload error');
+          }
+        });
+      });
+
+    }
+
+    function deleteFun(){
+
+      $.ajax('http://localhost:3001/p/util/images/Logo/delete', {
+        method: "POST",
+        data: {
+          key: img
+        },
+        success: function (data) {
+
+          img = null;
+          $('.qiniu').hide();
+        },
+        error: function (e) {
+          console.error(e)
+          console.log('Upload error');
+        }
+      });
+    }
+
+    function inputChange(){
+        console.log('change')
+      var URL = window.URL || window.webkitURL;
+      $('#inputImage').change(function () {
+        var files = this.files;
+        var file;
+
+        if (! $('#image').data('cropper')) {
+          return;
+        }
+
+        if (files && files.length) {
+          file = files[0];
+
+          if (/^image\/\w+$/.test(file.type)) {
+            uploadedImageType = file.type;
+
+            if (uploadedImageURL) {
+              URL.revokeObjectURL(uploadedImageURL);
+            }
+
+            uploadedImageURL = URL.createObjectURL(file);
+            $('#image').cropper('destroy').attr('src', uploadedImageURL).cropper(options);
+            $('#inputImage').val('');
+          } else {
+            window.alert('Please choose an image file.');
+          }
+        }
+      });
+    }
+    window.onbeforeunload=function () {
+      if(img) {
+        deleteFun();
+      }
+
+      if(document.all){
+
+        if(event.clientY<0){
+
+          return "确定要离开吗？";
+
+        }
+
+      }else{
+
+        return "确定要离开吗？";
+
+      }
+
+    }
+  </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+
+var debug = require('debug')('manager');
+//Port Set  UAT:3002 Test:3001 Localhost:3001
+
+/*****************************
+ * 企业钱包Nodejs项目启动文件
+ * 启动端口: UAT:3002 Test:3001 Localhost:3001
+ *
+ ****************************/
+//测试环境启动
+//var debug = require('debug')('manager');
+//
+global['uid'] = process.env['uid'] || 'CM';
+
+global['logger']  = require('../model/IncludeLog4js') ;
+var logger= global['logger']('server');
+
+var port = 3002;
+if(process.env['uat']){
+    port = 3002;
+}
+else{
+   port = 3001;
+}
+//检索启动module
+var module = process.env['module'];
+if(module){
+    var modules = module.split(',');
+    port  = (modules.length  + 2)  * 1000 + modules.length;
+    if(module.match('mobile')){
+        port += 1;
+    }
+    if(module.match('task')){
+        port += 5;
+    }
+    if(module.match('manager')){
+        port += 10;
+    }
+    if(module.match('api')){
+        port += 15;
+    }
+    if(module.match('eCard')){
+        port += 20;
+    }
+}
+//如果有默认端口 使用环境参数
+port = process.env['PORT'] || port;
+global['_port'] = port;
+
+
+var app = require('../app');
+app.set('port',  port);
+logger.info('--Server Port : ' + port);
+logger.info('--Server Path : ' + __dirname)
+
+var server = app.listen(app.get('port'), function() {
+    //console.log('服务启动端口: ' + server.address().port );
+});
+
+
+//启动二维码登录
+require('../model/qrLogin')(server);

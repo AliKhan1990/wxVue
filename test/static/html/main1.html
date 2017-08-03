@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% for (var index in htmlWebpackPlugin.options.files.css) { %>
+      <link
+        rel="stylesheet"
+        href="<%= htmlWebpackPlugin.options.files.css[index] %>"
+      />
+    <% } %>
+</head>
+<body>
+
+</body>
+</html>
